@@ -5,17 +5,21 @@ CRAFT: Character-Region Awareness For Text detection | [Paper ](https://arxiv.or
 
 This is a C++ implementation for the CRAFT text detector with TensorRT for accelerated inference. Compared to the official PyTorch implementation, it significantly improves text detection efficiency and facilitates deployment.
 
+Upon testing, the inference speed on RTX 4090 is **x12 faster** than the original CRAFT-pytorch project.
+
 ### Getting started
 
 #### Requirements
-
+- gcc
 - CUDA
 - TensorRT
+
+The environment we tested with is GCC 7.3.1 + CUDA 11.2 + TensorRT-8.5.3.1
 
 
 #### Generate trt engine
 
-- Download the trained models
+- Download the .pth model and place it in the 'pretrained' directory.
 
     - Official pretrained model: [craft_mlt_25k.pth](https://drive.google.com/open?id=1Jk4eGD7crsqCCg9C9VjCLkMN3ze8kutZ)
 
@@ -34,12 +38,27 @@ This is a C++ implementation for the CRAFT text detector with TensorRT for accel
     ```
 
 #### Make and run demo
-```
-make
-./main
-```
+- make
+    ```
+    make -j8
+    ```
+- run demo
+
+    ```
+    ./main <engine_path> <height> <width> <yuv_file_path>
+    ```
+    example:
+    ```
+    ./main ./pretrained/craft_mlt_25k_fp16_dynamic_shape.cache 2160 3840 4k-B_fengqiluoyang_17min_27min_toufa_nv12.yuv
+    ```
+    Currently, the './main' only supports NV12 format YUV input. If you want to test with PNG images, you can use ffmpeg to convert them to NV12. We will support input of image formats such as PNG in future updates.
+    ```
+    ffmpeg -i in.png -pix_fmt nv12 in.yuv
+    ```
 
 #### Interface Specification
+
+The following interface can be utilized to integrate into your own code.
 
 - Initialization and loading of the TRT engine
     ```

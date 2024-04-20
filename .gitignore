@@ -5,3 +5,4 @@ erzi_src*
 *.onnx
 *.pth
 *.cache
+*.pyc

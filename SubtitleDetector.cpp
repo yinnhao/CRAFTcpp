@@ -54,8 +54,7 @@ void Detector::initData(int height, int width, const char* engine_path, float ra
     // cudaMalloc(&this->src_rgb_i_d, p_count*sizeof(uint8_t)*3);
     cudaMalloc(&this->src_yuv_f_d, p_count*sizeof(float)*3);
     cudaMalloc(&this->sdr_rgb, p_count*sizeof(half)*3);
-    
-    cudaMalloc(&this->bilinear_out, p_count/4*sizeof(half)*3);
+    cudaMalloc(&this->bilinear_out, scale_height*scale_width*sizeof(half)*3);
     cudaMalloc(&this->pad_out, new_height*new_width*sizeof(half)*3);
     // score_map shape: (batch_size, new_height/2, new_width/2, 2)
     cudaMalloc(&score_map, new_height*new_width*sizeof(half)/2);
