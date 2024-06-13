@@ -43,6 +43,7 @@ extern "C"
 void infer_init(int height, int width, const char* engine_path, float ratio);
 vector<int> infer_pipe(uint8_t **in_yuv, int format, int* line_size);
 void destroyObj();
+vector<int> infer_pipe_rgb(uint8_t *rgb);
 }
 class Detector {
 public:

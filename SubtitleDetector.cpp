@@ -526,6 +526,10 @@ vector<int> infer_pipe(uint8_t **in_yuv, int format, int* line_size){
     //     return detector->inference_rgb_in(in_yuv);
     // }
 }
+vector<int> infer_pipe_rgb(uint8_t *rgb){
+    
+    return detector->inference_rgb_in(rgb);
+}
 }
 extern "C"{
 
