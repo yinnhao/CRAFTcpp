@@ -1,4 +1,3 @@
-res*
 erzi_src*
 *.mp4
 *.mkv
@@ -6,3 +5,4 @@ erzi_src*
 *.pth
 *.cache
 *.pyc
+pretrained/*

@@ -1,8 +1,9 @@
 #include "SubtitleDetector.h"
 #include <opencv2/opencv.hpp>
+// ./test_img /mnt/ec-data2/ivs/1080p/zyh/sdr2hdr-v3.4.1-engine/4090/epoch_91_fp16.trt ./images/image.png
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cout << "Usage: ./main <engine_path> <input_path>" << std::endl;
+        std::cout << "Usage: ./test_img <engine_path> <input_path>" << std::endl;
         return 1;
     }
 
@@ -47,14 +48,10 @@ int main(int argc, char* argv[]) {
            }
        }
     }
-
-
-
     // cpu to gpu mem
     uint8_t *d_image;
     cudaMalloc(&d_image, p_count*sizeof(uint8_t));
     cudaMemcpy(d_image, rgb, p_count*sizeof(uint8_t), cudaMemcpyHostToDevice);
-
 
     cudaEvent_t start, stop;
 

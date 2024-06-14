@@ -1,1 +1,0 @@
-g++ -g onnx2trt.cpp -o onnx2trt -I/data/source/TensorRT-8.5.3.1/include -I/usr/local/cuda-11.2/targets/x86_64-linux/include/ -L/data/source/TensorRT-8.5.3.1/lib -lnvinfer -lnvparsers -lnvonnxparser -lnvinfer_plugin
