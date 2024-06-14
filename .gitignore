@@ -6,3 +6,5 @@ erzi_src*
 *.cache
 *.pyc
 pretrained/*
+test_img
+test_yuv

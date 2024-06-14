@@ -10,8 +10,8 @@ Upon testing, the inference speed on RTX 4090 is **x12 faster** than the origina
 In addition, I have also provided a Chinese and English video subtitle detection model fine-tuned using a custom dataset, which offers higher accuracy in subtitle detection.
 
 <p float="left">
-  <img src="res/subtitle2_res.jpg" width=200 height=120 />
-  <img src="res/subtitle3_res.jpg" width=200 height=120 /> 
+  <img src="res/subtitle2_res.jpg" width=400 height=240 />
+  <img src="res/subtitle3_res.jpg" width=400 height=240 /> 
 </p>
 
 ### Getting started
